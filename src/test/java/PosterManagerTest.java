@@ -19,21 +19,6 @@ public class PosterManagerTest {
     PosterItem item10 = new PosterItem("Любовники", "комедия");
     PosterItem item11 = new PosterItem("Грозный папа", "приключения");
 
-    // @BeforeEach
-    // public void setup() {
-    //  manager.save(item1);
-    //  manager.save(item2);
-    //  manager.save(item3);
-    //   manager.save(item4);
-    //   manager.save(item5);
-    //   manager.save(item6);
-    //   manager.save(item7);
-    //   manager.save(item8);
-    //   manager.save(item9);
-    //   manager.save(item10);
-    //   manager.save(item11);
-    //   }
-
     @Test
     public void test() {
 
