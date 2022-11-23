@@ -124,7 +124,7 @@ public class PosterRepositoryTest {
 
         repo.findById(item3.getId());
 
-        PosterItem[] expected = {item3};
+        PosterItem[] expected = {null, null, item3, null, null, null, null, null, null, null, null,};
         PosterItem[] actual = repo.getItems();
 
         Assertions.assertArrayEquals(expected, actual);
