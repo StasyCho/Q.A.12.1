@@ -24,10 +24,11 @@ public class PosterManager {
         }
         PosterItem[] reversed = new PosterItem[resultLength];
         for (int i = 0; i < resultLength; i++) {
-            reversed[i] = items[resultLength - i];
+            reversed[i] = items[items.length - 1 - i];
         }
         return reversed;
     }
+
 
     public PosterItem[] findLast2(int length) {
 
