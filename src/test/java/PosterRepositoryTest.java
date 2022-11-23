@@ -18,21 +18,6 @@ public class PosterRepositoryTest {
     PosterItem item10 = new PosterItem("Любовники", "комедия", 8);
     PosterItem item11 = new PosterItem("Грозный папа", "приключения", 9);
 
-   // @BeforeEach
-   // public void setup() {
-    //    repo.save(item1);
-     //   repo.save(item2);
-     //   repo.save(item3);
-     //   repo.save(item4);
-     //   repo.save(item5);
-     //   repo.save(item6);
-     //   repo.save(item7);
-    //    repo.save(item8);
-     //   repo.save(item9);
-     //   repo.save(item10);
-       // repo.save(item11);
-    // }
-
     @Test
     public void test() {
 
