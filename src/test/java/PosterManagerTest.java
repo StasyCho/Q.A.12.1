@@ -8,6 +8,8 @@ import static org.mockito.Mockito.*;
 
 public class PosterManagerTest {
 
+    //PosterRepository repo = new PosterRepository();
+
     PosterRepository repo = Mockito.mock(PosterRepository.class);
     PosterManager manager = new PosterManager(repo);
 
@@ -23,11 +25,17 @@ public class PosterManagerTest {
     PosterItem item10 = new PosterItem("Любовники", "комедия", 8);
     PosterItem item11 = new PosterItem("Грозный папа", "приключения", 9);
 
+    @Test
+    public void testAdd() {
 
+        PosterItem[] items = {item1, item2, item3};
+        doReturn(items).when(repo).findAll();
 
+        PosterItem[] expected = {item1, item2, item3};
+        PosterItem[] actual = manager.findAll();
 
-
-
+        Assertions.assertArrayEquals(expected, actual);
+    }
 
 
 }

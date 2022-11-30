@@ -36,17 +36,10 @@ public class PosterRepository {
         for (int i = 0; i < items.length; i++) {
             if (items[i].getId() == id) {
                 tmp[i] = items[i];
-            }
-            else {
+            } else {
                 tmp[i] = null;
             }
         }
         items = tmp;
     }
-
-    public PosterItem[] getItems() {
-        return items;
-    }
-
-
 }

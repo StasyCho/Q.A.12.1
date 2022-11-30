@@ -19,7 +19,7 @@ public class PosterRepositoryTest {
     PosterItem item11 = new PosterItem("Грозный папа", "приключения", 9);
 
     @Test
-    public void test() {
+    public void testSave() {
 
         repo.save(item1);
         repo.save(item2);
@@ -77,7 +77,7 @@ public class PosterRepositoryTest {
         repo.removeById(item2.getId());
 
         PosterItem[] expected = {item1, item3, item4, item5, item6, item7, item8, item9, item10, item11};
-        PosterItem[] actual = repo.getItems();
+        PosterItem[] actual = repo.findAll();
 
         Assertions.assertArrayEquals(expected, actual);
     }
@@ -100,7 +100,7 @@ public class PosterRepositoryTest {
         repo.removeAll();
 
         PosterItem[] expected = {};
-        PosterItem[] actual = repo.getItems();
+        PosterItem[] actual = repo.findAll();
 
         Assertions.assertArrayEquals(expected, actual);
     }
@@ -125,7 +125,7 @@ public class PosterRepositoryTest {
         repo.findById(item3.getId());
 
         PosterItem[] expected = {null, null, item3, null, null, null, null, null, null, null, null,};
-        PosterItem[] actual = repo.getItems();
+        PosterItem[] actual = repo.findAll();
 
         Assertions.assertArrayEquals(expected, actual);
 
