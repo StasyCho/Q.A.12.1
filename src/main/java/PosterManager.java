@@ -1,6 +1,16 @@
 public class PosterManager {
     private PosterItem[] items = new PosterItem[0];
 
+    int limit;
+
+    public PosterManager() {
+        this.limit = 10;
+    }
+
+    public PosterManager(int limit) {
+        this.limit = limit;
+    }
+
     public void save(PosterItem item) {
         PosterItem[] tmp = new PosterItem[items.length + 1];
         for (int i = 0; i < items.length; i++) {
@@ -14,29 +24,13 @@ public class PosterManager {
         return items;
     }
 
-    public PosterItem[] findLast1() {
+    public PosterItem[] findLast() {
 
         int resultLength;
-        if (items.length > 10) {
-            resultLength = 10;
-        } else {
+        if (items.length < limit) {
             resultLength = items.length;
-        }
-        PosterItem[] reversed = new PosterItem[resultLength];
-        for (int i = 0; i < resultLength; i++) {
-            reversed[i] = items[items.length - 1 - i];
-        }
-        return reversed;
-    }
-
-
-    public PosterItem[] findLast2(int length) {
-
-        int resultLength;
-        if (items.length > length) {
-            resultLength = length;
         } else {
-            resultLength = items.length;
+            resultLength = limit;
         }
         PosterItem[] reversed = new PosterItem[resultLength];
         for (int i = 0; i < resultLength; i++) {

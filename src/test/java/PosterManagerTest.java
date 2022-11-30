@@ -4,9 +4,6 @@ import org.junit.jupiter.api.Test;
 
 
 public class PosterManagerTest {
-
-    PosterManager manager = new PosterManager();
-
     PosterItem item1 = new PosterItem("Бладшот", "боевик");
     PosterItem item2 = new PosterItem("Вперёд", "мультфильм");
     PosterItem item3 = new PosterItem("ОтельБелград", "комедия");
@@ -21,6 +18,8 @@ public class PosterManagerTest {
 
     @Test
     public void test() {
+
+        PosterManager manager = new PosterManager();
 
         manager.save(item1);
         manager.save(item2);
@@ -41,7 +40,9 @@ public class PosterManagerTest {
     }
 
     @Test
-    public void shouldReverseAllItems1() {
+    public void findLast1() {
+
+        PosterManager manager = new PosterManager();
 
         manager.save(item1);
         manager.save(item2);
@@ -56,13 +57,15 @@ public class PosterManagerTest {
         manager.save(item11);
 
         PosterItem[] expected = {item11, item10, item9, item8, item7, item6, item5, item4, item3, item2};
-        PosterItem[] actual = manager.findLast1();
+        PosterItem[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void shouldReverseAllItems2() {
+    public void findLast2() {
+
+        PosterManager manager = new PosterManager();
 
         manager.save(item1);
         manager.save(item2);
@@ -76,14 +79,16 @@ public class PosterManagerTest {
         manager.save(item10);
 
         PosterItem[] expected = {item10, item9, item8, item7, item6, item5, item4, item3, item2, item1};
-        PosterItem[] actual = manager.findLast1();
+        PosterItem[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
 
 
     @Test
-    public void shouldReverseAllItems3() {
+    public void findLast3() {
+
+        PosterManager manager = new PosterManager();
 
         manager.save(item1);
         manager.save(item2);
@@ -94,17 +99,18 @@ public class PosterManagerTest {
         manager.save(item7);
         manager.save(item8);
         manager.save(item9);
-        manager.save(item10);
-        manager.save(item11);
 
-        PosterItem[] expected = {item11, item10, item9, item8, item7};
-        PosterItem[] actual = manager.findLast2(5);
+
+        PosterItem[] expected = {item9, item8, item7, item6, item5, item4, item3, item2, item1};
+        PosterItem[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void shouldReverseAllItems4() {
+    public void findLast4() {
+
+        PosterManager manager = new PosterManager(11);
 
         manager.save(item1);
         manager.save(item2);
@@ -119,8 +125,55 @@ public class PosterManagerTest {
         manager.save(item11);
 
         PosterItem[] expected = {item11, item10, item9, item8, item7, item6, item5, item4, item3, item2, item1};
-        PosterItem[] actual = manager.findLast2(11);
+        PosterItem[] actual = manager.findLast();
 
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    @Test
+    public void findLast5() {
+
+        PosterManager manager = new PosterManager(15);
+
+        manager.save(item1);
+        manager.save(item2);
+        manager.save(item3);
+        manager.save(item4);
+        manager.save(item5);
+        manager.save(item6);
+        manager.save(item7);
+        manager.save(item8);
+        manager.save(item9);
+        manager.save(item10);
+        manager.save(item11);
+
+        PosterItem[] expected = {item11, item10, item9, item8, item7, item6, item5, item4, item3, item2, item1};
+        PosterItem[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void findLast6() {
+
+        PosterManager manager = new PosterManager(5);
+
+        manager.save(item1);
+        manager.save(item2);
+        manager.save(item3);
+        manager.save(item4);
+        manager.save(item5);
+        manager.save(item6);
+        manager.save(item7);
+        manager.save(item8);
+        manager.save(item9);
+        manager.save(item10);
+        manager.save(item11);
+
+        PosterItem[] expected = {item11, item10, item9, item8, item7};
+        PosterItem[] actual = manager.findLast();
+
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
 }
